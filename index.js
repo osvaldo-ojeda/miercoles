@@ -101,12 +101,66 @@ const suma = (x, y) => {
 // console.log(`🚀 ~ suma:`, suma(3, 7));
 
 // var nombre="pedlo"
-const nombre="camilo"
+// const nombre="camilo"
 function mostrarNombre() {
   let nombre = "osval";
-  console.log(`🚀 ~ mostrarNombre ~ nombre:`, nombre)
+  console.log(`🚀 ~ mostrarNombre ~ nombre:`, nombre);
 }
-console.log(`🚀 nombre:`, nombre);
-mostrarNombre();
-console.log(`🚀 nombre:`, nombre);
+// console.log(`🚀 nombre:`, nombre);
+// mostrarNombre();
+// console.log(`🚀 nombre:`, nombre);
+// ----------------------------------------------------
 
+// copias de objetos y Arrays
+
+let nombre = "Chayane";
+let nick = nombre;
+nick = "Elmer";
+// console.log(`🚀 ~ nick:`, nick);
+// console.log(`🚀 ~ nombre:`, nombre);
+
+const data = {
+  nombre: "shakira",
+  apellido: "Mebarak",
+};
+// const userData = data;
+// userData.nombre = userData.nombre.toUpperCase();
+// userData.edad = 47;
+// console.log(`🚀 ~ data:`, data);
+// console.log(`🚀 ~ userData:`, userData);
+
+// copia a mano
+const handCopy = {
+  nombre: data.nombre,
+  apellido: data.apellido,
+};
+// console.log(`🚀 ~ handCopy:`, handCopy)
+// console.log(`🚀 ~ data:`, data);
+
+// copia con spread operator
+const spreadCopy= {...data};
+spreadCopy.apellido =spreadCopy.apellido.toUpperCase()
+console.log(`🚀 ~ spreadCopy:`, spreadCopy)
+console.log(`🚀 ~ data:`, data);
+
+// sliceCopy
+const arr=[1,2,3,4]
+// const arr2=arr
+const arr2=arr.slice()
+arr2[0]=5
+console.log(`🚀 ~ arr2:`, arr2)
+console.log(`🚀 ~ arr:`, arr)
+
+function slice(array) {
+     const length= array.length;
+     const newArray=[]
+     for (let index = 0; index < length; index++) {
+          newArray.push(array[index])
+     }
+     return  newArray
+}
+const abc=["a", "b","c"]
+const myArray=slice(abc)
+myArray[0]="x"
+console.log(`🚀 ~ myArray:`, myArray)
+console.log(`🚀 ~ abc:`, abc)

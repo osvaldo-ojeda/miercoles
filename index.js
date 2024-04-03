@@ -122,6 +122,7 @@ nick = "Elmer";
 const data = {
   nombre: "shakira",
   apellido: "Mebarak",
+  hobbies: { hobbie1: "cantar" },
 };
 // const userData = data;
 // userData.nombre = userData.nombre.toUpperCase();
@@ -130,37 +131,56 @@ const data = {
 // console.log(`🚀 ~ userData:`, userData);
 
 // copia a mano
-const handCopy = {
-  nombre: data.nombre,
-  apellido: data.apellido,
-};
+// const handCopy = {
+//   nombre: data.nombre,
+//   apellido: data.apellido,
+// };
 // console.log(`🚀 ~ handCopy:`, handCopy)
 // console.log(`🚀 ~ data:`, data);
 
 // copia con spread operator
-const spreadCopy= {...data};
-spreadCopy.apellido =spreadCopy.apellido.toUpperCase()
-console.log(`🚀 ~ spreadCopy:`, spreadCopy)
-console.log(`🚀 ~ data:`, data);
+const spreadCopy = { ...data };
+spreadCopy.apellido = spreadCopy.apellido.toUpperCase();
+spreadCopy.hobbies = "cantar";
+// console.log(`🚀 ~ data:`, data);
+// console.log(`🚀 ~ spreadCopy:`, spreadCopy);
 
 // sliceCopy
-const arr=[1,2,3,4]
+const arr = [1, 2, 3, 4];
 // const arr2=arr
-const arr2=arr.slice()
-arr2[0]=5
-console.log(`🚀 ~ arr2:`, arr2)
-console.log(`🚀 ~ arr:`, arr)
+const arr2 = arr.slice();
+arr2[0] = 5;
+// console.log(`🚀 ~ arr2:`, arr2)
+// console.log(`🚀 ~ arr:`, arr)
 
 function slice(array) {
-     const length= array.length;
-     const newArray=[]
-     for (let index = 0; index < length; index++) {
-          newArray.push(array[index])
-     }
-     return  newArray
+  const length = array.length;
+  const newArray = [];
+  for (let index = 0; index < length; index++) {
+    newArray.push(array[index]);
+  }
+  return newArray;
 }
-const abc=["a", "b","c"]
-const myArray=slice(abc)
-myArray[0]="x"
-console.log(`🚀 ~ myArray:`, myArray)
-console.log(`🚀 ~ abc:`, abc)
+const abc = ["a", "b", "c"];
+const myArray = slice(abc);
+myArray[0] = "x";
+// console.log(`🚀 ~ myArray:`, myArray)
+// console.log(`🚀 ~ abc:`, abc)
+
+// ------------------
+// deep copy
+const user = [1, { name: "Juan" }, { date: new Date() }];
+// const userSpread=[...user]
+// userSpread[0]=2
+// userSpread[1].name="JUAN"
+// console.log(`🚀 ~ userSpread:`, userSpread)
+const jsonCopy = JSON.parse(JSON.stringify(user));
+jsonCopy[1].name = "Luis";
+// console.log(`🚀 ~ jsonCopy:`, jsonCopy);
+// console.log(`🚀 ~ user:`, user);
+
+// structuredClone
+const structuredCopy=structuredClone(user)
+structuredCopy[1].name="MARIA"
+console.log(`🚀 ~ structuredCopy:`, structuredCopy)
+console.log(`🚀 ~ user:`, user);

@@ -1,7 +1,7 @@
 ## Ejercicio 1: Encuentra el número más grande en un arreglo:
 Crear una función que reciba por parámetros un array de numeros y encuentre el número más grande en un arreglo
 Ejemplo:
-const numeros = [10, 5, 20, 15]; //Resultado 15
+const numeros = [10, 5, 20, 15]; //Resultado 20
 
 ## Ejercicio 2: Calcula la suma de todos los elementos en un arreglo:
 Crear una función que reciba por parámetros un array de numeros y calcule la suma de todos los elementos en un arreglo

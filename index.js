@@ -22,8 +22,22 @@ function tres(param) {
 function cuatro() {
   return fetch("https://jsonplaceholder.typicode.com/todos/1");
 }
-function cinco() {
-  return "cinco";
+async function cinco() {
+  try {
+    const data = await fetch(
+      "https://jsonplaceholder.typicode.com/posts/1/comments"
+    );
+    const respuesta = await data.json();
+    console.log(respuesta);
+    //     return respuesta
+  } catch (error) {
+    console.log(error);
+  } finally {
+    console.log("final de la promesa 5");
+  }
+}
+function seis() {
+  return "seis";
 }
 
 console.log(uno());
@@ -32,11 +46,12 @@ console.log(dos());
 tres("4")
   .then((res) => console.log(res))
   .catch((er) => console.log(er))
-  .finally(f=>console.log("final de la rpomesa 3"))
+  .finally(() => console.log("final de la rpomesa 3"));
 
 cuatro()
   .then((response) => response.json())
   .then((json) => console.log(json))
-  .catch(error=>console.log(error))
-  .finally(()=>console.log("final de la promesa 5"))
-console.log(cinco());
+  .catch((error) => console.log(error))
+  .finally(() => console.log("final de la promesa 4"));
+cinco();
+console.log(seis());

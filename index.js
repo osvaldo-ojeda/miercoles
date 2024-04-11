@@ -1,46 +1,42 @@
-// console.log(require)
-const { saludar, miArray } = require("./functions/saludar.js");
-const numeroMaximo = require("./functions/numeroMaximo.js");
-const sumarArray = require("./functions/sumarArray.js");
-const abbrevName = require("./functions/abbrevName.js");
-const oneProperty = require("./functions/oneProperty.js");
-const processStudents = require("./functions/processStudents");
+function uno() {
+  return "uno";
+}
+function dos() {
+  setTimeout(() => {
+    console.log("dos");
+    return 2;
+  }, 0);
+  return 2;
+}
 
-// console.log(`🚀 ~ miArray:`, miArray);
-// console.log(`🚀 ~ saludar:`, saludar);
-// saludar();
-// ----------------------
-// destructuring
-let obj = { nombre: "osvaldin", apellido: "ramirez" };
-// const nombre=obj.nombre;
-// const apellido= obj.apellido
-// const {nombre, apellido}=obj
-// console.log(`🚀 ~ apellido:`, apellido)
-// console.log(`🚀 ~ nombre:`, nombre)
+function tres(param) {
+  return new Promise((resolve, reject) => {
+    if (param === "tres") {
+      resolve("soy tres");
+    } else {
+      reject("Error");
+    }
+  });
+}
 
-// ------------------
-numeroMaximo([10, 5, 20, 15]);
-// ------------------
-sumarArray([10, 5, 20, 15]);
-// ------------------
-abbrevName("chayane shakyra kuka");
-// ------------------
-oneProperty(
-  [
-    { name: "Kuka", edad: 3 },
-    { name: "Canela", edad: 4 },
-  ],
-  "name"
-);
-// ------------------
-const estudiantes = [
-  { nombre: "Juan", edad: 17, curso: "Primero" },
-  { nombre: "Ana", edad: 18, curso: "Segundo" },
-  { nombre: "Carlos", edad: 16, curso: "Primero" },
-  { nombre: "María", edad: 19, curso: "Tercero" },
-];
-processStudents(estudiantes);
-// ------------------
-// ------------------
-// ------------------
-// ------------------
+function cuatro() {
+  return fetch("https://jsonplaceholder.typicode.com/todos/1");
+}
+function cinco() {
+  return "cinco";
+}
+
+console.log(uno());
+console.log(dos());
+
+tres("4")
+  .then((res) => console.log(res))
+  .catch((er) => console.log(er))
+  .finally(f=>console.log("final de la rpomesa 3"))
+
+cuatro()
+  .then((response) => response.json())
+  .then((json) => console.log(json))
+  .catch(error=>console.log(error))
+  .finally(()=>console.log("final de la promesa 5"))
+console.log(cinco());

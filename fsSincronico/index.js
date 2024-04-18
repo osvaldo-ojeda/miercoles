@@ -1,4 +1,9 @@
-const { readFileSync, writeFileSync, appendFileSync } = require("node:fs");
+const {
+  readFileSync,
+  writeFileSync,
+  appendFileSync,
+  statSync,
+} = require("node:fs");
 
 // const algo = require("../package.json");
 // console.log(`🚀 ~ algo:`, algo)
@@ -24,8 +29,8 @@ function write(file, text) {
 
 function appen(path, text) {
   try {
-    const data = appendFileSync(`./${path}`, `\n${text}`)
-    console.log(`🚀 ~ appen ~ data:`, data)
+    const data = appendFileSync(`./${path}`, `\n${text}`);
+    console.log(`🚀 ~ appen ~ data:`, data);
   } catch (error) {
     console.log(`🚀 ~ appen ~ error:`, error);
   }
@@ -36,3 +41,13 @@ function appen(path, text) {
 //  appen("README.md", "hola chayane")
 // read("README.md");
 
+function stat(param) {
+  try {
+    const stats = statSync(param);
+    console.log(`🚀 ~ stat ~ stats:`, stats);
+  } catch (error) {
+    console.log(`🚀 ~ stat ~ error:`, error);
+  }
+}
+
+stat("./package.json");

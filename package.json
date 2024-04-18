@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node .",
     "dev:Sincronico": "node --watch ./fsSincronico/index.js",
+    "dev:Promesas": "node --watch ./fsPromesas/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

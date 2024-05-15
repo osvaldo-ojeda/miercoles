@@ -5,7 +5,6 @@ import { methodLoger } from "../midlewares/methodLoger.js";
 
 const routes = Router();
 
-// routes.use(methodLoger);
 routes.use("/user", userRoutes);
 routes.use("/product", productRoutes);
 

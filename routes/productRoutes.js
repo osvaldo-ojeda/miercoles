@@ -3,8 +3,7 @@ import { Router } from "express";
 const productRoutes = Router();
 
 productRoutes.get("/", (req, res, next) => {
-  res.send("get all products");
-  next()
+  res.status(200).send("get all products");
 });
 productRoutes.get("/:id", (req, res) => {
   res.send("get product by id");

@@ -1,11 +1,11 @@
-import User from "../Models/User.js";
+import { User, Role } from "../Models/models.js";
 
 class UserController {
   // createUser(){}
   createUser = async (req, res) => {
     try {
-      const { name, mail, password } = req.body;
-      const data = await User.create({ name, mail, password });
+      const { name, mail, password, roleId } = req.body;
+      const data = await User.create({ name, mail, password, roleId });
       res.status(201).send({
         success: true,
         message: `Usuario ${data.name} creado con exito`,
@@ -17,7 +17,11 @@ class UserController {
   readAllUser = async (req, res) => {
     try {
       const data = await User.findAll({
-        attributes: ["name", "mail", "isActive"],
+        attributes: ["name", "mail", "isActive", "roleId"],
+        include: {
+          model: Role,
+          attributes: ["name"],
+        },
       });
       res.status(201).send({
         success: true,
@@ -30,9 +34,13 @@ class UserController {
   readUserById = async (req, res) => {
     try {
       const { id } = req.params;
-      const data = await User.findAll({
+      const data = await User.findOne({
         attributes: ["name", "mail", "isActive"],
         where: { id },
+        include: {
+          model: Role,
+          attributes: ["name"],
+        },
       });
       res.status(201).send({
         success: true,

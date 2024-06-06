@@ -12,5 +12,5 @@ const roleSeed = async () => {
   }
 };
 
-// await roleSeed()
-export { roleSeed };
+await roleSeed()
+// export { roleSeed };

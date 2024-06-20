@@ -1,11 +1,13 @@
 import { Router } from "express";
-import userRoutes from "./userRoutes.js";
-import productRoutes from "./productRoutes.js";
-import { methodLoger } from "../midlewares/methodLoger.js";
+import Controller from "../controller/Controller.js";
 
 const routes = Router();
+const controller = new Controller();
 
-routes.use("/user", userRoutes);
-routes.use("/product", productRoutes);
+routes.post("/", controller.ingresarPalabra);
+routes.get("/", controller.listarPalabras);
+routes.delete("/:palabra", controller.borrarPalabras);
+routes.get("/all",);
+routes.get("/:cantidad", controller.allApiPalabras);
 
 export default routes;
